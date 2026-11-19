@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as MapaRouteImport } from './routes/mapa'
+import { Route as ViagemRouteImport } from './routes/viagem'
+import { Route as ViagensRouteImport } from './routes/viagens'
+import { Route as ApiPublicV1IndexRouteImport } from './routes/api/public/v1/index'
+import { Route as ApiPublicV1ParagensRouteImport } from './routes/api/public/v1/paragens'
+import { Route as ApiPublicV1RotasRouteImport } from './routes/api/public/v1/rotas'
+import { Route as ApiPublicV1ViagensRouteImport } from './routes/api/public/v1/viagens'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MapaRoute = MapaRouteImport.update({
+  id: '/mapa',
+  path: '/mapa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ViagemRoute = ViagemRouteImport.update({
+  id: '/viagem',
+  path: '/viagem',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ViagensRoute = ViagensRouteImport.update({
+  id: '/viagens',
+  path: '/viagens',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicV1IndexRoute = ApiPublicV1IndexRouteImport.update({
+  id: '/api/public/v1/',
+  path: '/api/public/v1/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicV1ParagensRoute = ApiPublicV1ParagensRouteImport.update({
+  id: '/api/public/v1/paragens',
+  path: '/api/public/v1/paragens',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicV1RotasRoute = ApiPublicV1RotasRouteImport.update({
+  id: '/api/public/v1/rotas',
+  path: '/api/public/v1/rotas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicV1ViagensRoute = ApiPublicV1ViagensRouteImport.update({
+  id: '/api/public/v1/viagens',
+  path: '/api/public/v1/viagens',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/mapa': typeof MapaRoute
+  '/viagem': typeof ViagemRoute
+  '/viagens': typeof ViagensRoute
+  '/api/public/v1/paragens': typeof ApiPublicV1ParagensRoute
+  '/api/public/v1/rotas': typeof ApiPublicV1RotasRoute
+  '/api/public/v1/viagens': typeof ApiPublicV1ViagensRoute
+  '/api/public/v1/': typeof ApiPublicV1IndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/mapa': typeof MapaRoute
+  '/viagem': typeof ViagemRoute
+  '/viagens': typeof ViagensRoute
+  '/api/public/v1/paragens': typeof ApiPublicV1ParagensRoute
+  '/api/public/v1/rotas': typeof ApiPublicV1RotasRoute
+  '/api/public/v1/viagens': typeof ApiPublicV1ViagensRoute
+  '/api/public/v1': typeof ApiPublicV1IndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/mapa': typeof MapaRoute
+  '/viagem': typeof ViagemRoute
+  '/viagens': typeof ViagensRoute
+  '/api/public/v1/paragens': typeof ApiPublicV1ParagensRoute
+  '/api/public/v1/rotas': typeof ApiPublicV1RotasRoute
+  '/api/public/v1/viagens': typeof ApiPublicV1ViagensRoute
+  '/api/public/v1/': typeof ApiPublicV1IndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/mapa'
+    | '/viagem'
+    | '/viagens'
+    | '/api/public/v1/paragens'
+    | '/api/public/v1/rotas'
+    | '/api/public/v1/viagens'
+    | '/api/public/v1/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/mapa'
+    | '/viagem'
+    | '/viagens'
+    | '/api/public/v1/paragens'
+    | '/api/public/v1/rotas'
+    | '/api/public/v1/viagens'
+    | '/api/public/v1'
+  id:
+    | '__root__'
+    | '/'
+    | '/mapa'
+    | '/viagem'
+    | '/viagens'
+    | '/api/public/v1/paragens'
+    | '/api/public/v1/rotas'
+    | '/api/public/v1/viagens'
+    | '/api/public/v1/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  MapaRoute: typeof MapaRoute
+  ViagemRoute: typeof ViagemRoute
+  ViagensRoute: typeof ViagensRoute
+  ApiPublicV1ParagensRoute: typeof ApiPublicV1ParagensRoute
+  ApiPublicV1RotasRoute: typeof ApiPublicV1RotasRoute
+  ApiPublicV1ViagensRoute: typeof ApiPublicV1ViagensRoute
+  ApiPublicV1IndexRoute: typeof ApiPublicV1IndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mapa': {
+      id: '/mapa'
+      path: '/mapa'
+      fullPath: '/mapa'
+      preLoaderRoute: typeof MapaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/viagem': {
+      id: '/viagem'
+      path: '/viagem'
+      fullPath: '/viagem'
+      preLoaderRoute: typeof ViagemRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/viagens': {
+      id: '/viagens'
+      path: '/viagens'
+      fullPath: '/viagens'
+      preLoaderRoute: typeof ViagensRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/v1/': {
+      id: '/api/public/v1/'
+      path: '/api/public/v1'
+      fullPath: '/api/public/v1/'
+      preLoaderRoute: typeof ApiPublicV1IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/v1/paragens': {
+      id: '/api/public/v1/paragens'
+      path: '/api/public/v1/paragens'
+      fullPath: '/api/public/v1/paragens'
+      preLoaderRoute: typeof ApiPublicV1ParagensRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/v1/rotas': {
+      id: '/api/public/v1/rotas'
+      path: '/api/public/v1/rotas'
+      fullPath: '/api/public/v1/rotas'
+      preLoaderRoute: typeof ApiPublicV1RotasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/v1/viagens': {
+      id: '/api/public/v1/viagens'
+      path: '/api/public/v1/viagens'
+      fullPath: '/api/public/v1/viagens'
+      preLoaderRoute: typeof ApiPublicV1ViagensRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  MapaRoute: MapaRoute,
+  ViagemRoute: ViagemRoute,
+  ViagensRoute: ViagensRoute,
+  ApiPublicV1ParagensRoute: ApiPublicV1ParagensRoute,
+  ApiPublicV1RotasRoute: ApiPublicV1RotasRoute,
+  ApiPublicV1ViagensRoute: ApiPublicV1ViagensRoute,
+  ApiPublicV1IndexRoute: ApiPublicV1IndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
