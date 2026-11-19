@@ -72,7 +72,10 @@ function MapPage() {
                 <button
                   type="button"
                   aria-pressed={active}
-                  onClick={() => setFocus(active ? null : r.id)}
+                  onClick={() => {
+                    setFocus(active ? null : r.id);
+                    if (!active) window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
                   className={cn(
                     "flex w-full items-center gap-3 rounded-2xl border bg-card p-3 text-left transition",
                     active ? "border-primary ring-2 ring-primary/20" : "hover:border-primary/40",
