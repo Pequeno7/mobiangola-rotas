@@ -1,6 +1,6 @@
 # MobiAngola Rotas
 
-PROMPT — DESENVOLVIMENTO DA PLATAFORMA MOBIANGOLA
+DESENVOLVIMENTO DA PLATAFORMA MOBIANGOLA
 
 
 
@@ -478,31 +478,3 @@ Entregar um sistema funcional composto por:
 
 - Testes automatizados.
 
-
-
-IMPORTANTE: Não construir apenas páginas estáticas ou uma demonstração visual. Implementar funcionalidades reais, integrar frontend e backend e testar os principais fluxos da aplicação.
-
-
-
-Começar pela arquitetura e pela estrutura do projeto. Explicar cada etapa, apresentar os ficheiros criados e validar o funcionamento antes de avançar para a etapa seguinte.
-
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/2da59403-71e6-4248-9bfc-147e2e4d59f0).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
