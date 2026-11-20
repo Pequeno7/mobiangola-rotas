@@ -63,3 +63,10 @@ As paragens têm nomes reais mas coordenadas aproximadas e não verificadas.
 
 `bunx vitest run` — `src/lib/routing/engine.test.ts` cobre diretas, transferências, limite de
 transferências, ciclos, restrições de embarque, tarifas em falta e ordenação.
+
+## Pesquisa por texto livre (IA)
+
+- O passageiro escreve a viagem por palavras suas ("Estou no Kilamba e quero ir para a Mutamba").
+- `src/lib/trip-intent/trip-intent.functions.ts` (função de servidor) envia o texto e a lista de paragens registadas ao modelo `openai/gpt-6-astra` através do Lovable AI Gateway, com resposta em JSON estrito.
+- `resolveTripAnswer` (`src/lib/trip-intent/resolve.ts`, testado) aceita apenas ids de paragens que existem; o que não for reconhecido fica em branco e o passageiro é avisado.
+- As alternativas continuam a ser calculadas pelo motor de rotas sobre as rotas registadas — a IA não cria percursos.

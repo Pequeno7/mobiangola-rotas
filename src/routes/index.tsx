@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { Logo } from "@/components/brand/Logo";
 import { AppShell } from "@/components/layout/AppShell";
 import { StopPicker } from "@/components/search/StopPicker";
+import { TripTextSearch } from "@/components/search/TripTextSearch";
 import { DemoNotice } from "@/components/trip/DataBadges";
 import { Button } from "@/components/ui/button";
 import { networkQuery } from "@/lib/network";
@@ -26,6 +27,8 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content: "Instruções claras: onde embarcar, onde sair e onde trocar de transporte em Luanda.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   loader: ({ context }) => context.queryClient.ensureQueryData(networkQuery()),
@@ -171,6 +174,14 @@ function Home() {
             <Search /> Encontrar viagem
           </Button>
         </form>
+
+        <TripTextSearch
+          defaultMaxTransfers={maxTransfers}
+          onPartial={(o, d) => {
+            if (o) setOrigin(o);
+            if (d) setDestination(d);
+          }}
+        />
 
         {pilot.from && pilot.to && (
           <section aria-labelledby="pilot-title" className="space-y-2">

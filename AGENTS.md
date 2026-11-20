@@ -37,3 +37,4 @@ use the editor.
 - Never fabricate transit data: missing times/fares stay `null` and demo or unverified data carries explicit flags (`is_demo`, `verified`) that the UI must surface.
 - Leaflet is imported dynamically inside `TransitMap` effects because it touches `window`; map colors come from CSS classes using design tokens, not inline colors.
 - Admin writes are gated by RLS with `has_role(auth.uid(), 'admin')`; roles live only in `user_roles`.
+- Free-text trip search lives in `src/lib/trip-intent/`: the model only proposes stop ids from the registered list, and `resolveTripAnswer` (pure, tested) discards any id not in the network, so the AI can never introduce stops or routes.
