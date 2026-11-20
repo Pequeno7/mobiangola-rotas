@@ -14,6 +14,24 @@ export type Database = {
   }
   public: {
     Tables: {
+      admin_allowlist: {
+        Row: {
+          added_by: string | null
+          created_at: string
+          email: string
+        }
+        Insert: {
+          added_by?: string | null
+          created_at?: string
+          email: string
+        }
+        Update: {
+          added_by?: string | null
+          created_at?: string
+          email?: string
+        }
+        Relationships: []
+      }
       cities: {
         Row: {
           active: boolean
@@ -414,6 +432,23 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      admin_add_email: { Args: { _email: string }; Returns: undefined }
+      admin_list_admins: {
+        Args: never
+        Returns: {
+          added_at: string
+          email: string
+          has_account: boolean
+          is_admin: boolean
+          last_sign_in_at: string
+        }[]
+      }
+      admin_remove_email: { Args: { _email: string }; Returns: undefined }
+      admin_save_route_stops: {
+        Args: { _route_id: string; _stops: Json }
+        Returns: undefined
+      }
+      admin_usage_stats: { Args: { _days?: number }; Returns: Json }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
